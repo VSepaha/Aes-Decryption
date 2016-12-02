@@ -3,8 +3,7 @@
 #include <stdint.h>
 #include "aes.h"
 
-// #define ECB 1
-// #define CBC 0
+//Hello Tim this is a comment for you
 
 static void test_decrypt_ecb(void);
 
