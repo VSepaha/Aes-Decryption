@@ -7,40 +7,6 @@
 
 static void test_decrypt_ecb(void);
 
-int hex_to_int(char c){
-        int first = c / 16 - 3;
-        int second = c % 16;
-        int result = first*10 + second;
-        if(result > 9) result--;
-        return result;
-}
-
-int hex_to_ascii(char c, char d){
-        int high = hex_to_int(c) * 16;
-        int low = hex_to_int(d);
-        return high+low;
-}
-void printPlainText(uint8_t* buffer){
-		int i;
-		char plaintext[32];
-		for(i = 0; i < 32; i++){
-			plaintext[i] = (char)buffer[i];
-		}
-	    int length = strlen(plaintext);
-        //int i;
-        char buf = 0;
-        for(i = 0; i < length; i++){
-                if(i % 2 != 0){
-                        printf("%c", hex_to_ascii(buf, plaintext[i]));
-                }else{
-                        buf = plaintext[i];
-                }
-        }
-        printf("\n");
-
-}
-
-
 int main(){
 	printf("Start\n");
 	test_decrypt_ecb();
