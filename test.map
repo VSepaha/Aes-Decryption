@@ -148,7 +148,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  *(.iplt)
  .iplt          0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
 
-.text           0x00000000004006d0      0xaa2
+.text           0x00000000004006d0      0xb02
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
@@ -166,61 +166,62 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
                 0x0000000000400dd3                AES128_ECB_decrypt
                 0x0000000000400e02                AES128_CBC_encrypt_buffer
                 0x0000000000400ee4                AES128_CBC_decrypt_buffer
- .text          0x0000000000400fcc      0x133 aesCracker.o
-                0x0000000000400fcc                testDecrypt
- *fill*         0x00000000004010ff        0x1 
- .text          0x0000000000401100       0x72 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
-                0x0000000000401100                __libc_csu_init
-                0x0000000000401170                __libc_csu_fini
- .text          0x0000000000401172        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
- .text          0x0000000000401172        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+ .text          0x0000000000400fcc      0x185 aesCracker.o
+                0x0000000000400fcc                getMaxValue
+                0x0000000000400fe3                testDecrypt
+ *fill*         0x0000000000401151        0xf 
+ .text          0x0000000000401160       0x72 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+                0x0000000000401160                __libc_csu_init
+                0x00000000004011d0                __libc_csu_fini
+ .text          0x00000000004011d2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .text          0x00000000004011d2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  *(.gnu.warning)
 
-.fini           0x0000000000401174        0x9
+.fini           0x00000000004011d4        0x9
  *(SORT(.fini))
- .fini          0x0000000000401174        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
-                0x0000000000401174                _fini
- .fini          0x0000000000401178        0x5 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
-                0x000000000040117d                PROVIDE (__etext, .)
-                0x000000000040117d                PROVIDE (_etext, .)
-                0x000000000040117d                PROVIDE (etext, .)
+ .fini          0x00000000004011d4        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+                0x00000000004011d4                _fini
+ .fini          0x00000000004011d8        0x5 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+                0x00000000004011dd                PROVIDE (__etext, .)
+                0x00000000004011dd                PROVIDE (_etext, .)
+                0x00000000004011dd                PROVIDE (etext, .)
 
-.rodata         0x0000000000401180      0x370
+.rodata         0x00000000004011e0      0x3d0
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata.cst4   0x0000000000401180        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
-                0x0000000000401180                _IO_stdin_used
- *fill*         0x0000000000401184        0xc 
- .rodata        0x0000000000401190      0x300 aes.o
+ .rodata.cst4   0x00000000004011e0        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x00000000004011e0                _IO_stdin_used
+ *fill*         0x00000000004011e4        0xc 
+ .rodata        0x00000000004011f0      0x300 aes.o
  .rodata.str1.1
-                0x0000000000401490       0x3b aesCracker.o
- *fill*         0x00000000004014cb        0x5 
- .rodata        0x00000000004014d0       0x20 aesCracker.o
+                0x00000000004014f0       0x93 aesCracker.o
+ *fill*         0x0000000000401583        0xd 
+ .rodata        0x0000000000401590       0x20 aesCracker.o
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x00000000004014f0       0xb4
+.eh_frame_hdr   0x00000000004015b0       0xbc
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x00000000004014f0       0xb4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame_hdr  0x00000000004015b0       0xbc /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
 
-.eh_frame       0x00000000004015a8      0x3d4
+.eh_frame       0x0000000000401670      0x3ec
  *(.eh_frame)
- .eh_frame      0x00000000004015a8       0x30 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
- .eh_frame      0x00000000004015d8       0x40 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
- .eh_frame      0x0000000000401618      0x288 aes.o
+ .eh_frame      0x0000000000401670       0x30 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame      0x00000000004016a0       0x40 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame      0x00000000004016e0      0x288 aes.o
                                         0x278 (size before relaxing)
- .eh_frame      0x00000000004018a0       0x78 aesCracker.o
-                                         0x88 (size before relaxing)
- .eh_frame      0x0000000000401918       0x60 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .eh_frame      0x0000000000401968       0x90 aesCracker.o
+                                         0xa0 (size before relaxing)
+ .eh_frame      0x00000000004019f8       0x60 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
                                          0x78 (size before relaxing)
- .eh_frame      0x0000000000401978        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .eh_frame      0x0000000000401a58        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
 
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
-                0x000000000040197c                . = (ALIGN (0x200000) - ((0x200000 - .) & 0x1fffff))
+                0x0000000000401a5c                . = (ALIGN (0x200000) - ((0x200000 - .) & 0x1fffff))
                 0x0000000000601e0c                . = DATA_SEGMENT_ALIGN (0x200000, 0x1000)
 
 .eh_frame

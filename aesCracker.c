@@ -1,3 +1,8 @@
+/* For the implementation that I am thinking of, we need to define the key and the 
+ciphertext in the main function and call our decryption algorithm from there.
+I have all the basics figured out, the second we get the key incrementing then I should be
+able to put everything together without any problems.*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
@@ -8,6 +13,18 @@
 #define DICTIONARY_LEN 9000
 
 typedef char string[MAX_CHARS+1];
+
+int getMaxValue(uint8_t *buffer){
+	int i;
+	int max = 0;
+	for(i = 0; i < 31; i++){
+		int temp = (int)buffer[i];
+		if (max < temp){
+			max = temp;
+		}
+	}
+	return max;
+}
 
 void testDecrypt(string *dictionary){
 	printf("Test Case: \n");
@@ -23,20 +40,41 @@ void testDecrypt(string *dictionary){
   		AES128_ECB_decrypt(ciphertext+i, key, buffer+i);
   	}
 
+  	//To print out the values in the buffer
+  	// for (i = 0; i < 31; i++){
+  	// 	printf("%d ", buffer[i]);
+  	// }
+  	// printf("\n");
+
+  	int max = getMaxValue(buffer);
+  	//printf("The max value in the buffer is: %d\n", max);
+  	if (max > 122){
+  		printf("Plaintext contains invalid characters\n");
+  		return;
+  	}
+
   	//Convert to plaintext and print
   	char *plaintext = (char *)(intptr_t)buffer;
-  	printf("%s\n", plaintext);
+  	printf("Output Plaintext: %s\n", plaintext);
 
   	//Change everything to lowercase so it is easier to compare
   	for(i = 0; i < 31; i++){
   		plaintext[i] = tolower(plaintext[i]);
 	}
 
+
 	//iterate through the dictionary to see if a word is contained in the plaintext
+	int count = 0;
   	for(i = 0; i < DICTIONARY_LEN; i++){
   		if(strstr(plaintext, dictionary[i]) != NULL){
   			//Print all the words contained in the plaintext
   			printf("Plaintext contains a word '%s'\n", dictionary[i]);
+  			count++;
+  		}
+  		//If no valid words are found
+  		if (i == DICTIONARY_LEN-1 && count == 0){
+  			printf("Plaintext contains no words\n");
+  			return;
   		}
   	}
 
