@@ -16,6 +16,8 @@ void testDecrypt(string *dictionary){
   	uint8_t ciphertext[]  = {0x11, 0x37, 0x59, 0x0E, 0x76, 0x02, 0x25, 0x6E, 0x37, 0xFC, 0xD3, 0x68, 0x55, 0xCC, 0x93, 0x53,0xC1, 0xF2, 0xC2, 0x11, 0x71, 0xF2, 0xEC, 0x03, 0x91, 0xBE, 0xEE, 0x9A, 0x0A, 0x19, 0xB0, 0x84};
   	uint8_t buffer[32];
   
+  	// Decryption happens here 
+  	// Electronic Code book decrypts 16 bytes at a time 
   	int i;
   	for(i = 0; i<sizeof(ciphertext); i+=16){
   		AES128_ECB_decrypt(ciphertext+i, key, buffer+i);
@@ -30,9 +32,10 @@ void testDecrypt(string *dictionary){
   		plaintext[i] = tolower(plaintext[i]);
 	}
 
-	//iterate through the array to see if a word is contained in the array
+	//iterate through the dictionary to see if a word is contained in the plaintext
   	for(i = 0; i < DICTIONARY_LEN; i++){
   		if(strstr(plaintext, dictionary[i]) != NULL){
+  			//Print all the words contained in the plaintext
   			printf("Plaintext contains a word '%s'\n", dictionary[i]);
   		}
   	}
@@ -45,14 +48,14 @@ int main(){
 	int i;
 	string dictionary[DICTIONARY_LEN];
 	
-	FILE *myfile;
+	FILE *myfile; //Here we will read from the words.txt file
 	myfile = fopen("words.txt", "r");
 	for(i = 0; i < DICTIONARY_LEN; i++){
 		fscanf(myfile, "%s", dictionary[i]);
 	}
 	fclose(myfile);
 	
-	//Call the decrpytion function
+	//Call the test decrpytion function
 	testDecrypt(dictionary);
 	return 0;
 }
