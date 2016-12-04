@@ -1,18 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
+#include <ctype.h>
 #include "aes.h"
 
-static void test_decrypt_ecb(void);
+#define MAX_CHARS 50
+#define DICTIONARY_LEN 9000
 
-int main(){
-	test_decrypt_ecb();
-	return 0;
-}
+typedef char string[MAX_CHARS+1];
 
-//Test to see if we get the correct output from the test ciphertext
-static void test_decrypt_ecb(void) {
-
+void testDecrypt(string *dictionary){
 	printf("Test Case: \n");
 
   	uint8_t key[] = {0x6F, 0x1C, 0x5C, 0xD9, 0x27, 0x0A, 0xC8, 0xDD, 0xEA, 0xE6, 0x43, 0x0F, 0x30, 0x96, 0xC8, 0x06};
@@ -26,14 +23,36 @@ static void test_decrypt_ecb(void) {
 
   	//Convert to plaintext and print
   	char *plaintext = (char *)(intptr_t)buffer;
-  	printf("%s--------------", plaintext);
+  	printf("%s\n", plaintext);
 
-  	int rc = strcmp(plaintext, "ECE 424 Course Project Testfile");
-  	if(!rc){
-  		printf("SUCCESS!\n");
-  	} else {
-  		printf("FAIL\n");
-  	} 
+  	//Change everything to lowercase so it is easier to compare
+  	for(i = 0; i < 31; i++){
+  		plaintext[i] = tolower(plaintext[i]);
+	}
 
-} //TEST PASSED
+	//iterate through the array to see if a word is contained in the array
+  	for(i = 0; i < DICTIONARY_LEN; i++){
+  		if(strstr(plaintext, dictionary[i]) != NULL){
+  			printf("Plaintext contains a word '%s'\n", dictionary[i]);
+  		}
+  	}
 
+}
+
+int main(){
+	
+	//Set the dictionary that we will be using
+	int i;
+	string dictionary[DICTIONARY_LEN];
+	
+	FILE *myfile;
+	myfile = fopen("words.txt", "r");
+	for(i = 0; i < DICTIONARY_LEN; i++){
+		fscanf(myfile, "%s", dictionary[i]);
+	}
+	fclose(myfile);
+	
+	//Call the decrpytion function
+	testDecrypt(dictionary);
+	return 0;
+}
