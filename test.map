@@ -149,82 +149,82 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  *(.iplt)
  .iplt          0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
 
-.text           0x0000000000400720      0xb92
+.text           0x0000000000400720      0xbd2
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
- .text.startup  0x0000000000400720      0x163 aesCracker.o
+ .text.startup  0x0000000000400720      0x197 aesCracker.o
                 0x0000000000400720                main
  *(.text.hot .text.hot.*)
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x0000000000400883       0x2a /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
-                0x0000000000400883                _start
- .text          0x00000000004008ad        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
- *fill*         0x00000000004008ad        0x3 
- .text          0x00000000004008b0       0xbd /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
- .text          0x000000000040096d      0x79f aes.o
-                0x0000000000400ee4                AES128_ECB_encrypt
-                0x0000000000400f13                AES128_ECB_decrypt
-                0x0000000000400f42                AES128_CBC_encrypt_buffer
-                0x0000000000401024                AES128_CBC_decrypt_buffer
- .text          0x000000000040110c      0x12c aesCracker.o
-                0x000000000040110c                getMaxValue
-                0x0000000000401123                decrypt
-                0x0000000000401218                incrementKey
- *fill*         0x0000000000401238        0x8 
- .text          0x0000000000401240       0x72 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
-                0x0000000000401240                __libc_csu_init
-                0x00000000004012b0                __libc_csu_fini
- .text          0x00000000004012b2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
- .text          0x00000000004012b2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+ .text          0x00000000004008b7       0x2a /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x00000000004008b7                _start
+ .text          0x00000000004008e1        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+ *fill*         0x00000000004008e1        0xf 
+ .text          0x00000000004008f0       0xbd /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+ .text          0x00000000004009ad      0x79f aes.o
+                0x0000000000400f24                AES128_ECB_encrypt
+                0x0000000000400f53                AES128_ECB_decrypt
+                0x0000000000400f82                AES128_CBC_encrypt_buffer
+                0x0000000000401064                AES128_CBC_decrypt_buffer
+ .text          0x000000000040114c      0x12c aesCracker.o
+                0x000000000040114c                getMaxValue
+                0x0000000000401163                decrypt
+                0x0000000000401258                incrementKey
+ *fill*         0x0000000000401278        0x8 
+ .text          0x0000000000401280       0x72 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+                0x0000000000401280                __libc_csu_init
+                0x00000000004012f0                __libc_csu_fini
+ .text          0x00000000004012f2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .text          0x00000000004012f2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  *(.gnu.warning)
 
-.fini           0x00000000004012b4        0x9
+.fini           0x00000000004012f4        0x9
  *(SORT(.fini))
- .fini          0x00000000004012b4        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
-                0x00000000004012b4                _fini
- .fini          0x00000000004012b8        0x5 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
-                0x00000000004012bd                PROVIDE (__etext, .)
-                0x00000000004012bd                PROVIDE (_etext, .)
-                0x00000000004012bd                PROVIDE (etext, .)
+ .fini          0x00000000004012f4        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+                0x00000000004012f4                _fini
+ .fini          0x00000000004012f8        0x5 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+                0x00000000004012fd                PROVIDE (__etext, .)
+                0x00000000004012fd                PROVIDE (_etext, .)
+                0x00000000004012fd                PROVIDE (etext, .)
 
-.rodata         0x00000000004012c0      0x3b4
+.rodata         0x0000000000401300      0x3a4
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata.cst4   0x00000000004012c0        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
-                0x00000000004012c0                _IO_stdin_used
- *fill*         0x00000000004012c4        0xc 
- .rodata        0x00000000004012d0      0x300 aes.o
+ .rodata.cst4   0x0000000000401300        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x0000000000401300                _IO_stdin_used
+ *fill*         0x0000000000401304        0xc 
+ .rodata        0x0000000000401310      0x300 aes.o
  .rodata.str1.1
-                0x00000000004015d0       0x4f aesCracker.o
- *fill*         0x000000000040161f        0x1 
- .rodata        0x0000000000401620       0x50 aesCracker.o
- .rodata.cst4   0x0000000000401670        0x4 aesCracker.o
+                0x0000000000401610       0x4f aesCracker.o
+ *fill*         0x000000000040165f        0x1 
+ .rodata        0x0000000000401660       0x40 aesCracker.o
+ .rodata.cst4   0x00000000004016a0        0x4 aesCracker.o
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x0000000000401674       0xc4
+.eh_frame_hdr   0x00000000004016a4       0xc4
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x0000000000401674       0xc4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame_hdr  0x00000000004016a4       0xc4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
 
-.eh_frame       0x0000000000401738      0x3fc
+.eh_frame       0x0000000000401768      0x3fc
  *(.eh_frame)
- .eh_frame      0x0000000000401738       0x30 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
- .eh_frame      0x0000000000401768       0x40 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
- .eh_frame      0x00000000004017a8      0x288 aes.o
+ .eh_frame      0x0000000000401768       0x30 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame      0x0000000000401798       0x40 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame      0x00000000004017d8      0x288 aes.o
                                         0x278 (size before relaxing)
- .eh_frame      0x0000000000401a30       0xa0 aesCracker.o
+ .eh_frame      0x0000000000401a60       0xa0 aesCracker.o
                                          0xa8 (size before relaxing)
- .eh_frame      0x0000000000401ad0       0x60 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .eh_frame      0x0000000000401b00       0x60 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
                                          0x78 (size before relaxing)
- .eh_frame      0x0000000000401b30        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .eh_frame      0x0000000000401b60        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
 
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
-                0x0000000000401b34                . = (ALIGN (0x200000) - ((0x200000 - .) & 0x1fffff))
+                0x0000000000401b64                . = (ALIGN (0x200000) - ((0x200000 - .) & 0x1fffff))
                 0x0000000000601e0c                . = DATA_SEGMENT_ALIGN (0x200000, 0x1000)
 
 .eh_frame
