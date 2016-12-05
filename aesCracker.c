@@ -1,17 +1,11 @@
-/* For the implementation that I am thinking of, we need to define the key and the 
-ciphertext in the main function and call our decryption algorithm from there.
-I have all the basics figured out, the second we get the key incrementing then I should be
-able to put everything together without any problems.*/
-
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
 #include <ctype.h>
 #include "aes.h"
 
-#define MAX_CHARS 50
-#define DICTIONARY_LEN 9000
-#define SIZE 32
+#define MAX_CHARS 128
+#define DICTIONARY_LEN 9500
 #define true 1
 #define false 0
 
@@ -29,11 +23,11 @@ int getMaxValue(uint8_t *buffer){
 	return max;
 }
 
-int decrypt(uint8_t* key, uint8_t* ciphertext, string *dictionary){
+int decrypt(uint8_t* key, uint8_t* ciphertext, string *dictionary, int size){
 	int i, count;
-	uint8_t buffer[SIZE];
+	uint8_t buffer[size];
 
-	for(i = 0; i<(SIZE); i+=16){
+	for(i = 0; i<(size); i+=16){
   		AES128_ECB_decrypt(ciphertext+i, key, buffer+i);
   		int max = getMaxValue(buffer+i);
   		if (max > 122)
@@ -42,7 +36,7 @@ int decrypt(uint8_t* key, uint8_t* ciphertext, string *dictionary){
 
   	//Save buffer to plaintext 
   	char *plaintext = (char *)(intptr_t)buffer;
-  	for(i = 0; i < (SIZE-1); i++){
+  	for(i = 0; i < size; i++){
   		plaintext[i] = tolower(plaintext[i]);
 	}
 
@@ -58,6 +52,7 @@ int decrypt(uint8_t* key, uint8_t* ciphertext, string *dictionary){
   		}
   	}
 
+  	printf("Decryption Successful!\n");
   	printf("Plaintext = %s\n", plaintext);
   	return true;
 }
@@ -89,11 +84,16 @@ int main(){
 	}
 	fclose(myfile);
 
-	uint8_t initVector[] = {0x6F, 0x1C, 0x5C, 0xD9, 0x27, 0x0A, 0xC8, 0xDD, 0xEA, 0xE6, 0x43, 0x0F, 0x30, 0x96, 0xC8, 0x05};
-  	uint8_t ciphertext[] = {0x11, 0x37, 0x59, 0x0E, 0x76, 0x02, 0x25, 0x6E, 0x37, 0xFC, 0xD3, 0x68, 0x55, 0xCC, 0x93, 0x53,0xC1, 0xF2, 0xC2, 0x11, 0x71, 0xF2, 0xEC, 0x03, 0x91, 0xBE, 0xEE, 0x9A, 0x0A, 0x19, 0xB0, 0x84};
+	//length of 14 (hex)
+	uint8_t *initializationVector = "639404CBD1A1BD2322B206C39140"; 
+	//length of 64 (hex)
+	string initCiphertext = "5A052F928464CC3E437187ADCFC7E8F1CF9DEAC7059B5264E4E940D8C35AA60E2277D4832843043F593F40E4084609C886681BCF5B570D353BFF24C0E1F4A65E";
 
-  	//int IVsize = (int)sizeof(initVector);
-  	//printf("Size of IV = %d\n", IVsize);
+	uint8_t initVector[] = {0x6F, 0x1C, 0x5C, 0xD9, 0x27, 0x0A, 0xC8, 0xDD, 0xEA, 0xE6, 0x43, 0x0F, 0x30, 0x96, 0xC8, 0x06};
+  	uint8_t ciphertext[] = {0x11, 0x37, 0x59, 0x0E, 0x76, 0x02, 0x25, 0x6E, 0x37, 0xFC, 0xD3, 0x68, 0x55, 0xCC, 0x93, 0x53,0xC1, 0xF2, 0xC2, 0x11, 0x71, 0xF2, 0xEC, 0x03, 0x91, 0xBE, 0xEE, 0x9A, 0x0A, 0x19, 0xB0, 0x84};
+  	int size = (int)sizeof(ciphertext);
+
+  	printf("%d\n", initializationVector[0]);
 
   	//zero padding incase key is not long enough
   	uint8_t key[16] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -101,29 +101,16 @@ int main(){
 	 	key[i] = initVector[i];
 	}
 
-	//Call the test decrpytion function
-	// while(!check){
-	// 	//increment the key
-	// 	//call decrypt
-	// }
-
-	//uint8_t *key1 = key_increment(key);
 	for(i = 0; i < sizeof(initVector); i++){
 	 	key[i] = initVector[i];
 	}
-	//printf("%d\n", 0XFF);
 
-	printf("Current least significant hex: %d\n", key[15]);
-	for(i = 0; i < 20; i++){
+	i = 0;
+	check = false;
+	while(!check){
+		check = decrypt(key, ciphertext, dictionary, size);
 		incrementKey(key);
-		printf("%d\n", key[15]);
 	}
 
-	check = decrypt(key, ciphertext, dictionary);
-	if(check){
-		printf("Decryption Successful\n");
-	} else {
-		printf("Decryption Failed\n");
-	}
 	return 0;
 }
