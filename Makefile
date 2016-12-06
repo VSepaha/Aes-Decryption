@@ -40,7 +40,7 @@ aes.o : aes.h aes.c
 
 aesCracker.out : aes.o aesCracker.o
 	# linking object code to binary
-	$(CC) $(CFLAGS) aes.o aesCracker.o -o aesCracker.out
+	$(CC) $(CFLAGS) -pthread aes.o aesCracker.o -o aesCracker.out
 
 small: test.out
 	$(OBJCOPY) -j .text -O ihex aesCracker.out rom.hex
