@@ -89,25 +89,6 @@ int main(){
 	}
 	fclose(myfile);
 
-<<<<<<< HEAD
-	//length of 14 (hex)
-	//uint8_t *initializationVector = "639404CBD1A1BD2322B206C39140"; 
-	//length of 64 (hex)
-	//string initCiphertext = "5A052F928464CC3E437187ADCFC7E8F1CF9DEAC7059B5264E4E940D8C35AA60E2277D4832843043F593F40E4084609C886681BCF5B570D353BFF24C0E1F4A65E";
-
-
-	//This thing is missing the last two hex values
-	uint8_t initVector[] = {0x6F, 0x1C, 0x5C, 0xD9, 0x27, 0x0A, 0xC8, 0xDD, 0xEA, 0xE6, 0x43, 0x0F, 0x30, 0x96};
-  	uint8_t ciphertext[] = {0x11, 0x37, 0x59, 0x0E, 0x76, 0x02, 0x25, 0x6E, 0x37, 0xFC, 0xD3, 0x68, 0x55, 0xCC, 0x93, 0x53,0xC1, 0xF2, 0xC2, 0x11, 0x71, 0xF2, 0xEC, 0x03, 0x91, 0xBE, 0xEE, 0x9A, 0x0A, 0x19, 0xB0, 0x84};
-  	int size = (int)sizeof(ciphertext);
-
-  	//printf("%d\n", initializationVector[0]);
-
-  	//zero padding incase key is not long enough
-  	uint8_t key[16] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-  	for(i = 0; i < sizeof(initVector); i++){
-	 	key[i] = initVector[i];
-=======
 	uint8_t key[16] = {0x00};
 	uint8_t ciphertext[64] = {0x00};
 
@@ -123,7 +104,6 @@ int main(){
 		for(i = 0; i < sizeof(ciphertext1); i++){
 			ciphertext[i] = ciphertext1[i];
 		}
->>>>>>> 1deb1cc14c177f80463c1deab490db4b2ac91ea1
 	}
 	else if(choice == 2){
 		//CIPHERTEST and KEY 2
@@ -172,25 +152,16 @@ int main(){
 
 	i = 0;
 	check = false;
-<<<<<<< HEAD
-	int loopCounter = 0;
-=======
 	clock_t start, end;
 	start = clock();
->>>>>>> 1deb1cc14c177f80463c1deab490db4b2ac91ea1
 	while(!check){
-		loopCounter++;
 		check = decrypt(key, ciphertext, dictionary, size);
 		incrementKey(key);
 	}
-<<<<<<< HEAD
-	printf("Loop counter = %d\n", loopCounter);
-=======
 	end = clock();
 	float timeTaken = (float)((end-start)/(float)CLOCKS_PER_SEC);
 
 	printf("Time taken = %f seconds\n", timeTaken);
->>>>>>> 1deb1cc14c177f80463c1deab490db4b2ac91ea1
 
 	return 0;
 }
