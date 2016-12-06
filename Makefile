@@ -2,7 +2,7 @@
 #CFLAGS       = -Wall -mmcu=atmega16 -Os -Wl,-Map,test.map
 #OBJCOPY      = avr-objcopy
 CC           = gcc
-CFLAGS       = -Wall -Os -Wl,-Map,test.map
+CFLAGS       = -Wall -Os
 OBJCOPY      = objcopy
 
 # include path to AVR library
@@ -43,7 +43,7 @@ aesCracker.out : aes.o aesCracker.o
 	$(CC) $(CFLAGS) aes.o aesCracker.o -o aesCracker.out
 
 small: test.out
-	$(OBJCOPY) -j .text -O ihex test.out rom.hex
+	$(OBJCOPY) -j .text -O ihex aesCracker.out rom.hex
 
 clean:
 	rm -f *.OBJ *.LST *.o *.gch *.out *.hex *.map

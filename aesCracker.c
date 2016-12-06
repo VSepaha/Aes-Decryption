@@ -72,10 +72,6 @@ void incrementKey(uint8_t* key){
 	}
 }
 
-// void convertToHex(uint8_t* key, string stringVec, uint8_t* ciphertext, string stringcipher){
-// 	printf("%s ")
-// }
-
 int main(){
 	
 	//Set the dictionary that we will be using
@@ -153,12 +149,6 @@ int main(){
 	}
 
   	int size = (int)sizeof(ciphertext);
-
-    //zero padding incase key is not long enough
- //  	uint8_t key[16] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
- //  	for(i = 0; i < sizeof(key); i++){
-	//  	key[i] = key[i];
-	// }
 
 	i = 0;
 	check = false;
