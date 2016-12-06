@@ -28,7 +28,7 @@ rom.hex : aesCracker.out
 
 aesCracker.o : aesCracker.c
 	# compiling aesCracker.c
-	$(CC) $(CFLAGS) -c aesCracker.c -o aesCracker.o
+	$(CC) $(CFLAGS) -c aesCracker.c -o aesCracker.o 
 
 aes.o : aes.h aes.c
 	# compiling aes.c
@@ -43,7 +43,7 @@ aesCracker.out : aes.o aesCracker.o
 	$(CC) $(CFLAGS) aes.o aesCracker.o -o aesCracker.out
 
 small: test.out
-	$(OBJCOPY) -j .text -O ihex test.out rom.hex
+	$(OBJCOPY) -j .text -O ihex aesCracker.out rom.hex
 
 clean:
 	rm -f *.OBJ *.LST *.o *.gch *.out *.hex *.map

@@ -3,6 +3,15 @@ Archive member included to satisfy reference by file (symbol)
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
                               /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o (__libc_csu_init)
 
+Allocating common symbols
+Common symbol       size              file
+
+threadDataArray     0x50              aesCracker.o
+threads             0x8               aesCracker.o
+attr                0x38              aesCracker.o
+status              0x8               aesCracker.o
+dictionary          0x12b31c          aesCracker.o
+
 Discarded input sections
 
  .note.GNU-stack
@@ -149,82 +158,82 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  *(.iplt)
  .iplt          0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
 
-.text           0x0000000000400720      0xbd2
+.text           0x0000000000400720      0xca2
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
- .text.startup  0x0000000000400720      0x197 aesCracker.o
+ .text.startup  0x0000000000400720      0x116 aesCracker.o
                 0x0000000000400720                main
  *(.text.hot .text.hot.*)
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x00000000004008b7       0x2a /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
-                0x00000000004008b7                _start
- .text          0x00000000004008e1        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
- *fill*         0x00000000004008e1        0xf 
- .text          0x00000000004008f0       0xbd /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
- .text          0x00000000004009ad      0x79f aes.o
-                0x0000000000400f24                AES128_ECB_encrypt
-                0x0000000000400f53                AES128_ECB_decrypt
-                0x0000000000400f82                AES128_CBC_encrypt_buffer
-                0x0000000000401064                AES128_CBC_decrypt_buffer
- .text          0x000000000040114c      0x12c aesCracker.o
-                0x000000000040114c                getMaxValue
-                0x0000000000401163                decrypt
-                0x0000000000401258                incrementKey
- *fill*         0x0000000000401278        0x8 
- .text          0x0000000000401280       0x72 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
-                0x0000000000401280                __libc_csu_init
-                0x00000000004012f0                __libc_csu_fini
- .text          0x00000000004012f2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
- .text          0x00000000004012f2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+ .text          0x0000000000400836       0x2a /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x0000000000400836                _start
+ .text          0x0000000000400860        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+ .text          0x0000000000400860       0xbd /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
+ .text          0x000000000040091d      0x79f aes.o
+                0x0000000000400e94                AES128_ECB_encrypt
+                0x0000000000400ec3                AES128_ECB_decrypt
+                0x0000000000400ef2                AES128_CBC_encrypt_buffer
+                0x0000000000400fd4                AES128_CBC_decrypt_buffer
+ .text          0x00000000004010bc      0x286 aesCracker.o
+                0x00000000004010bc                getMaxValue
+                0x00000000004010d3                decryptParallel
+                0x0000000000401223                decrypt
+                0x0000000000401322                incrementKey
+ *fill*         0x0000000000401342        0xe 
+ .text          0x0000000000401350       0x72 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+                0x0000000000401350                __libc_csu_init
+                0x00000000004013c0                __libc_csu_fini
+ .text          0x00000000004013c2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .text          0x00000000004013c2        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  *(.gnu.warning)
 
-.fini           0x00000000004012f4        0x9
+.fini           0x00000000004013c4        0x9
  *(SORT(.fini))
- .fini          0x00000000004012f4        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
-                0x00000000004012f4                _fini
- .fini          0x00000000004012f8        0x5 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
-                0x00000000004012fd                PROVIDE (__etext, .)
-                0x00000000004012fd                PROVIDE (_etext, .)
-                0x00000000004012fd                PROVIDE (etext, .)
+ .fini          0x00000000004013c4        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o
+                0x00000000004013c4                _fini
+ .fini          0x00000000004013c8        0x5 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+                0x00000000004013cd                PROVIDE (__etext, .)
+                0x00000000004013cd                PROVIDE (_etext, .)
+                0x00000000004013cd                PROVIDE (etext, .)
 
-.rodata         0x0000000000401300      0x3a4
+.rodata         0x00000000004013d0      0x3b4
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata.cst4   0x0000000000401300        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
-                0x0000000000401300                _IO_stdin_used
- *fill*         0x0000000000401304        0xc 
- .rodata        0x0000000000401310      0x300 aes.o
+ .rodata.cst4   0x00000000004013d0        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+                0x00000000004013d0                _IO_stdin_used
+ *fill*         0x00000000004013d4        0xc 
+ .rodata        0x00000000004013e0      0x300 aes.o
  .rodata.str1.1
-                0x0000000000401610       0x4f aesCracker.o
- *fill*         0x000000000040165f        0x1 
- .rodata        0x0000000000401660       0x40 aesCracker.o
- .rodata.cst4   0x00000000004016a0        0x4 aesCracker.o
+                0x00000000004016e0       0x4f aesCracker.o
+ *fill*         0x000000000040172f        0x1 
+ .rodata        0x0000000000401730       0x50 aesCracker.o
+ .rodata.cst4   0x0000000000401780        0x4 aesCracker.o
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x00000000004016a4       0xc4
+.eh_frame_hdr   0x0000000000401784       0xcc
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x00000000004016a4       0xc4 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame_hdr  0x0000000000401784       0xcc /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
 
-.eh_frame       0x0000000000401768      0x3fc
+.eh_frame       0x0000000000401850      0x434
  *(.eh_frame)
- .eh_frame      0x0000000000401768       0x30 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
- .eh_frame      0x0000000000401798       0x40 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
- .eh_frame      0x00000000004017d8      0x288 aes.o
+ .eh_frame      0x0000000000401850       0x30 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame      0x0000000000401880       0x40 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
+ .eh_frame      0x00000000004018c0      0x288 aes.o
                                         0x278 (size before relaxing)
- .eh_frame      0x0000000000401a60       0xa0 aesCracker.o
-                                         0xa8 (size before relaxing)
- .eh_frame      0x0000000000401b00       0x60 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .eh_frame      0x0000000000401b48       0xd8 aesCracker.o
+                                         0xe0 (size before relaxing)
+ .eh_frame      0x0000000000401c20       0x60 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
                                          0x78 (size before relaxing)
- .eh_frame      0x0000000000401b60        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
+ .eh_frame      0x0000000000401c80        0x4 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
 
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
-                0x0000000000401b64                . = (ALIGN (0x200000) - ((0x200000 - .) & 0x1fffff))
+                0x0000000000401c84                . = (ALIGN (0x200000) - ((0x200000 - .) & 0x1fffff))
                 0x0000000000601e0c                . = DATA_SEGMENT_ALIGN (0x200000, 0x1000)
 
 .eh_frame
@@ -332,7 +341,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
                 0x0000000000602080                . = .
                 0x0000000000602080                __bss_start = .
 
-.bss            0x0000000000602080       0xd8
+.bss            0x0000000000602080   0x12b4a0
  *(.dynbss)
  .dynbss        0x0000000000000000        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o
  *(.bss .bss.* .gnu.linkonce.b.*)
@@ -346,25 +355,33 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  .bss           0x0000000000602158        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o
  .bss           0x0000000000602158        0x0 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  *(COMMON)
-                0x0000000000602158                . = ALIGN ((. != 0x0)?0x8:0x1)
+ *fill*         0x0000000000602158        0x8 
+ COMMON         0x0000000000602160   0x12b3bc aesCracker.o
+                0x0000000000602160                threadDataArray
+                0x00000000006021b0                threads
+                0x00000000006021c0                attr
+                0x00000000006021f8                status
+                0x0000000000602200                dictionary
+                0x000000000072d520                . = ALIGN ((. != 0x0)?0x8:0x1)
+ *fill*         0x000000000072d51c        0x4 
 
 .lbss
  *(.dynlbss)
  *(.lbss .lbss.* .gnu.linkonce.lb.*)
  *(LARGE_COMMON)
-                0x0000000000602158                . = ALIGN (0x8)
-                0x0000000000602158                . = SEGMENT_START ("ldata-segment", .)
+                0x000000000072d520                . = ALIGN (0x8)
+                0x000000000072d520                . = SEGMENT_START ("ldata-segment", .)
 
 .lrodata
  *(.lrodata .lrodata.* .gnu.linkonce.lr.*)
 
-.ldata          0x0000000000a02158        0x0
+.ldata          0x0000000000b2d520        0x0
  *(.ldata .ldata.* .gnu.linkonce.l.*)
-                0x0000000000a02158                . = ALIGN ((. != 0x0)?0x8:0x1)
-                0x0000000000a02158                . = ALIGN (0x8)
-                0x0000000000a02158                _end = .
-                0x0000000000a02158                PROVIDE (end, .)
-                0x0000000000a02158                . = DATA_SEGMENT_END (.)
+                0x0000000000b2d520                . = ALIGN ((. != 0x0)?0x8:0x1)
+                0x0000000000b2d520                . = ALIGN (0x8)
+                0x0000000000b2d520                _end = .
+                0x0000000000b2d520                PROVIDE (end, .)
+                0x0000000000b2d520                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
